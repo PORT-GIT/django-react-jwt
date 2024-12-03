@@ -1,0 +1,19 @@
+#this file will contain all the dependencies for the project
+#that will need to be installed into the env environment
+#this will allow the dependencies to be installed for me
+#activate by pip3 install -r requirements.txt
+asgiref
+Django
+django-cors-headers
+djangorestframework
+djangorestframework-simplejwt
+#to enable jwt authentication
+PyJWT
+pytz
+sqlparse
+psycopg2-binary==2.9.9
+#ths version has been accepted
+#psycopg2- this version is not supported by my MAC
+#psycopg2-binary- this version is not supported by my MAC
+#allow communication with a postgres database
+python-dotenv
