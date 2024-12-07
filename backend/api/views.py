@@ -29,7 +29,7 @@ class NoteListCreate(generics.ListCreateAPIView):
     def get_queryset(self):
         #this will get a user that is authenticated and has the permission to interact with this view
         user = self.request.user
-        #get the authenticated user object is retrieved using the line above
+        #the authenticated user object is retrieved using the line above
         #the user is then used to filter the notes written by the retrieved user object
         return Note.objects.filter(author=user)
         #this will filter all the notes written by the called user
@@ -47,7 +47,24 @@ class NoteListCreate(generics.ListCreateAPIView):
             #the serializer i specified the author to be read-only
             #since the data cannot be passed automatically it has been manually added
             serializer.save(author = self.request.user)
-
         else:
             print(serializer.errors)
+
+
+class NoteDelete(generics.DestroyAPIView):
+    serializer_class = NoteSerializer
+    #notes will only be deleted if user is authenticated
+    permission_classes = [IsAuthenticated]
+
+    #this is to get the notes of the authenticated user to delete them
+    #these are the valid notes that can be deleted
+    def get_queryset(self):
+        #this will get a user that is authenticated and has the permission to interact with this delete view
+        user = self.request.user
+        #the authenticated user object is retrieved using the line above
+        #the user is then used to filter the notes written by the retrieved user object
+        return Note.objects.filter(author=user)
+        #this will filter all the notes written by the authenticated user who can then delete them
+
+
             
