@@ -22,7 +22,7 @@ const api = axios.create({
 api.interceptors.request.use(
     // below is an arrow function
     (config) => {
-        // this function wil check for an access token in the local storage
+        // this function will check for an access token in the local storage
         // if i do it will add an authorization header to the request
         const token = localStorage.getItem(ACCESS_TOKEN);
         if (token) {
@@ -39,4 +39,4 @@ api.interceptors.request.use(
 )
 
 export default api
-// this means i can call on api rather than use axios to send all requests
+// this means i can call on api object rather than use axios to add authorization tokens to the requests
