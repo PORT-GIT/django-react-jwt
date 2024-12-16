@@ -15,7 +15,8 @@ import { useEffect, useState } from "react"
 // but it will stop a user from accessing aroute until they have logged in 
 function ProtectedRoute({children}){
 
-    // this means that as soon as a PROTECTEDROUTE is loaded the auth function below will be called
+    // this means that as soon as a PROTECTEDROUTE is loaded the AUTH FUNCTION below will be called
+    //to see if there is a token 
     useEffect(() => {
         // this is in case there is an error then the user is unauthorized
         auth().catch(() => {SetIsAuthorized(false)}) 

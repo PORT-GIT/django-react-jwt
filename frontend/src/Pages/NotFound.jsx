@@ -1,3 +1,4 @@
+// this is like a 404 page
 import React from 'react'
 
 function NotFound() {
