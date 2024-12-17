@@ -13,7 +13,7 @@ function LogOut(){
   return <Navigate to= "/login"/>
 }
 
-// this function is for whn a new user is registering
+// this function is for when a new user is registering
 // this will first clear the local storage to prevent giving older access tokens
 function RegisterandLogout() {
   localStorage.clear()
@@ -35,6 +35,9 @@ function App() {
           </ProtectedRoute> } />
 
           <Route path="/login" element= { <Login/> }/>
+          
+          {/* this is the logout route which will use the function above */}
+          <Route path="/logout" element= { <LogOut/> }/>
 
           <Route path="/register" element= { <RegisterandLogout/> }/>
 
